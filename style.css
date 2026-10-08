@@ -1,0 +1,73 @@
+:root {
+  color-scheme: light dark;
+  --ink: #1c1c1e;
+  --ink-2: #6e6e73;
+  --rule: rgba(60, 60, 67, 0.18);
+  --paper: #ffffff;
+  --desk: #f2f2f7;
+  --accent: #0a84ff;
+  --sun: #ff9a2e;
+  --sure: #1f2b5e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f2f2f7;
+    --ink-2: #9a9aa0;
+    --rule: rgba(235, 235, 245, 0.18);
+    --paper: #1c1c1e;
+    --desk: #000000;
+  }
+}
+
+* { box-sizing: border-box; }
+html { background: var(--desk); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Pretendard", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* One sheet of paper on a desk, like the app. */
+.paper {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 48px 32px 56px;
+  background: var(--paper);
+  border-radius: 20px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+}
+@media (max-width: 600px) {
+  .paper { margin: 0; border-radius: 0; padding: 32px 20px 48px; min-height: 100vh; }
+}
+
+header.brand { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+header.brand img { width: 56px; height: 56px; border-radius: 13px; }
+header.brand .name { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+header.brand .tag { color: var(--ink-2); font-size: 15px; }
+
+h1 { font-size: 30px; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 8px; }
+h2 { font-size: 20px; margin: 40px 0 8px; letter-spacing: -0.01em; }
+h3 { font-size: 17px; margin: 24px 0 4px; }
+p, li { color: var(--ink); }
+.muted { color: var(--ink-2); }
+small, .meta { color: var(--ink-2); font-size: 14px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 40px 0; }
+
+/* Soon / Sure as typography: a dotted and a solid underline. */
+.soon { text-decoration: underline dotted var(--accent) 2px; text-underline-offset: 4px; }
+.sure { text-decoration: underline solid var(--sure) 2px; text-underline-offset: 4px; }
+
+nav.lang { display: flex; gap: 12px; font-size: 14px; margin-bottom: 8px; }
+nav.lang a { padding: 4px 10px; border: 1px solid var(--rule); border-radius: 999px; }
+
+nav.site { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 15px; margin: 24px 0 0; }
+
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--ink-2); }
+footer a { color: var(--ink-2); }
+
+.badge { display: inline-block; margin-top: 16px; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 600; }
+.badge:hover { text-decoration: none; opacity: 0.9; }
+.badge.soon-badge { background: transparent; color: var(--ink-2); border: 1px dashed var(--rule); }
